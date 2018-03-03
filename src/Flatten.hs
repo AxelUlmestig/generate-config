@@ -10,12 +10,13 @@ import Data.Vector              (Vector (..), toList)
 import Data.Map                 (Map, singleton, empty, mapWithKey, foldrWithKey, foldr, union, fromList)
 import qualified Data.HashMap.Strict as HashMap
 import Data.Aeson
+import Data.Maybe               (fromMaybe)
 
 flatten :: String -> Map String String
 flatten =
     trimKeys
     . flattenInternal ""
-    . maybe Null id
+    . fromMaybe Null
     . decode
     . BS.pack
 
