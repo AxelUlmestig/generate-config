@@ -17,7 +17,7 @@ import Modify                   (modify)
 data File = File {
     content :: String,
     name :: FilePath
-} deriving (Show)
+} deriving (Show, Eq)
 
 type Manifest = File
 type Template = File
